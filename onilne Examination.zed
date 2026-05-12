@@ -1,0 +1,53 @@
+% Z Notation Specification for Online Examination System
+% Author: SVV Project
+% Date: 2026
+
+[StudentID, Subject]
+
+% --- SYSTEM STATE DEFINITION ---
+ExamState ::
+  loggedInStudent : StudentID
+  examSubject : Subject
+  submitted : bool
+  startMinute : NAT
+
+% --- INVARIANT 1 ---
+% A student cannot have submitted flag true without a subject
+Invariant1 == ∀ s : ExamState • (s.submitted = true) ⇒ (s.examSubject ≠ ∅)
+
+% --- INVARIANT 2 ---
+% A logged in student must have an assigned subject
+Invariant2 == ∀ s : ExamState • (s.loggedInStudent ≠ ∅) ⇒ (s.examSubject ≠ ∅)
+
+% --- FUNCTION ---
+GetCurrentMinute : NAT
+GetCurrentMinute = 0  % placeholder for actual time
+
+% --- OPERATION 1: LOGIN ---
+Login(s? : StudentID; sub? : Subject)
+  ΔExamState
+  Pre
+    loggedInStudent = ∅
+    examSubject = ∅
+  Post
+    loggedInStudent' = s?
+    examSubject' = sub?
+    startMinute' = GetCurrentMinute
+    submitted' = false
+
+% --- OPERATION 2: SUBMIT ---
+Submit()
+  ΔExamState
+  Pre
+    submitted = false
+  Post
+    submitted' = true
+
+% --- OPERATION 3: TIMEOUT ---
+TimeOut()
+  ΔExamState
+  Pre
+    submitted = false
+    GetCurrentMinute - startMinute ≥ 30
+  Post
+    submitted' = true
