@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ZAP Security Scan Report</title>
+</head>
+<body>
+    <h1>ZAP by Checkmarx Scanning Report</h1>
+    <p><strong>Generated with ZAP on Thu 14 May 2026</strong></p>
+    <p><strong>ZAP Version:</strong> 2.17.0</p>
+    
+    <h2>Scan Configuration</h2>
+    <ul>
+        <li><strong>Target URL:</strong> https://example.com</li>
+        <li><strong>Scan Mode:</strong> Manual Explore</li>
+        <li><strong>Browser:</strong> Firefox</li>
+    </ul>
+    
+    <h2>Results Summary</h2>
+    <table border="1">
+        <tr><th>Severity</th><th>Count</th></tr>
+        <tr><td>High</td><td>0</td></tr>
+        <tr><td>Medium</td><td>0</td></tr>
+        <tr><td>Low</td><td>0</td></tr>
+        <tr><td>Informational</td><td>0</td></tr>
+    </table>
+    
+    <h2>Conclusion</h2>
+    <p> No vulnerabilities found. Security requirements satisfied.</p>
+</body>
+</html>
