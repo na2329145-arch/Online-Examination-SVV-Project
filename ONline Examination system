@@ -1,0 +1,35 @@
+class OnlineExamSystem
+
+instance variables
+
+  studentId : seq of char := [];
+  subject : seq of char := [];
+  submitted : bool := false;
+
+operations
+
+  public Login : seq of char * seq of char ==> ()
+  Login(s, sub) ==
+
+  (
+    studentId := s;
+    subject := sub;
+    submitted := false
+  )
+
+  pre studentId = []
+
+  post studentId = s;
+
+  public Submit : () ==> ()
+  Submit() ==
+
+  (
+    submitted := true
+  )
+
+  pre submitted = false
+
+  post submitted = true;
+
+end OnlineExamSystem
